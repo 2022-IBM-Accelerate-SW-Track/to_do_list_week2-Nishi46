@@ -1,7 +1,10 @@
 import React from "react";
 
 import "../component/todos.css";
-import { Card, CardContent, Grid,ListItemButton, ListItemText } from "@mui/material";
+import { Card, CardContent, Grid,Checkbox,ListItemButton, ListItemText } from "@mui/material";
+import { color } from "@mui/system";
+import { id } from "date-fns/locale";
+
 
 // 1. This component formats and returns the list of todos.
 // 2. Treat the question mark like an if statement.
@@ -15,11 +18,11 @@ const Todos = ({ todos }) => {
     todos.map((todo) => {
       return (
         <Grid key={todo.id}>
-          <Card>
+          <Card style={{marginTop:10}}> 
             {/* Remember, we set the local state of this todo item when the user submits the form in 
             AddTodo.js. All we need to do is return the todo list item {todo.content} */}
             <ListItemButton component="a" href="#simple-list">
-            style={{marginTop:10}}      
+            <Checkbox style={{paddingLeft:0}} primary={color} />   
               <ListItemText primary={todo.content} secondary={todo.date} />
             </ListItemButton>
           </Card>
